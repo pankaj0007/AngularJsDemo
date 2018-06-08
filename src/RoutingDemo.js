@@ -56,3 +56,37 @@ app.controller('NodeController',function($scope, UserService){
 	$scope.status = UserService.save({name: 'Saimon', email: 'saimon@devdactic.com'});
 	
 });
+
+
+
+function testInterceptor(){
+	return{
+		
+		request:function(config){
+			console.log('request : ',config);
+			return config;
+		},
+		requestError:function(config){
+			console.log('requestError');
+			return config;
+		},
+		response:function(config){
+			console.log('response : ',config);
+			return config;
+		},
+		responseError:function(config){
+			console.log('responseError');
+			return config;
+		}
+	}
+}
+
+
+app.factory('testInterceptor',testInterceptor).config(function($httpProvider){
+	
+	$httpProvider.interceptors.push('testInterceptor');
+});
+
+
+
+
