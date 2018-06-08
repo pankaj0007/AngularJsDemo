@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="utf-8">
+<title>AngularJS Routing</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-resource.js"></script>
+	
+	<script type="text/javascript" src="RoutingDemo.js"></script>
+</head>
+<body ng-app ="routeDemo">
+
+
+	<div class='container'>
+	<ul>
+		<li><a href='#angular/1'>Angular JS Topics</a></li>
+		<li><a href='#node'>Node JS Topics</a></li>
+		<br><br>
+		<div ng-view></div>
+	</ul>
+	</div>
+
+<!--  Validation in Angular JS -->
+	<form action="login" name= 'myForm' ng-controller='NodeController'>
+	<p>	Input Form : <input type='text' name="user" ng-model='user' required="required">
+		<span style="color:red" ng-show='myForm.user.$dirty && myForm.user.$invalid'>
+			<span ng-show='myForm.user.$error.required'>Username is required</span>
+		</span>
+	</p>
+	<p>
+	   <input type='submit' ng-disabled='myForm.user.$dirty && myForm.user.$invalid'>
+	</p>
+	</form>
+	
+<!--  Form submit and get the data from Controller -->
+	<form ng-submit=display() ng-controller='NodeController'>
+	Enter the topic you want to learn: 
+	<input type='text' ng-model='topic'><br>
+	<input type='submit' value='submit'>
+	
+	<ul ng-repeat='topicname in topics'>
+	   <li>{{topicname}}</li>
+	 </ul>
+	</form>
+</body>
+</html>

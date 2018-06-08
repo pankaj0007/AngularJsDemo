@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta chrset="UTF 8">
+    <title>Event Registration</title>
+</head>
+<body>
+
+<script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+<script src="https://code.angularjs.org/1.6.9/angular.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="FilterController.js"></script>
+<div ng-app="filter" ng-controller= 'filterController'>
+<input type= "text" ng-model= 'tutorial'>
+{{tutorial | lowercase}}
+
+<div id="number" ng-controller= 'numberController'>
+This tutorial Id is {{tutorial_id | number:2}}
+</div>
+
+<div id="currency" ng-controller= 'numberController'>
+This tutorial Id is {{tutorial_id | currency}}
+</div>
+
+<div ng-controller= 'filterController'>
+{{tutorial | customFilter}}
+
+</div>
+</body>
+</html>
