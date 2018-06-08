@@ -5,3 +5,7 @@
  4. Iteraction with Restful API using $resoucre, $http
  5. Validation using HTML, AngularJS Framework
 
+
+#1.1
+- Added Interceptor support for request, requestError
+- Added Interceptor support for response, responseError
